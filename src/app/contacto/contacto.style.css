@@ -1,0 +1,27 @@
+input{
+    padding: 5px;
+    margin:  5px;
+    width: 200px;
+}
+
+textarea{
+    padding: 5px;
+    margin:  5px;
+    width: 200px;
+}
+
+div{
+    text-align: center;
+}
+
+#enviar {
+    text-align: center;
+}
+
+#mensaje_exito {
+    background-color: rgb(250, 124, 102);
+    color: whitesmoke;
+    width: 70%;
+    display: inline-block;
+    margin: 50px 0 50px 0;
+}

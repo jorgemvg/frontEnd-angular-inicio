@@ -1,0 +1,14 @@
+<h1> Razón Social - {{empresa.razonSocial}}</h1>
+<h2> NIT - {{empresa.nit}}</h2>
+
+<input type="text" [(ngModel)]="nombreEmpresa" placeholder="Nombre nueva empresa"/> <button (click)="agregar()" >Agregar</button>
+<input type="text" [(ngModel)]="cantEmpleados" placeholder="Nombre nueva empresa"/> 
+
+<div class="div-lista"> 
+    <ul>
+        <li *ngFor="let empresa of empresas; let i = index" >
+                <span class="descripcion-Lista">{{empresa | conversor }}</span>
+                <span><button (click)="borrar(i)" >Borrar</button></span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,126 @@
+html, body { 
+    height: calc(100% - 10px);
+    margin: 0px;
+}
+
+header, nav, main, aside, footer {
+    /*border: 1px solid black;*/
+    box-sizing: border-box;
+    margin: 10px;
+}
+header{
+    height: 50px;
+    background: rgb(248, 248, 255);
+    margin: auto;
+    padding: 10px;
+}
+nav{
+    height: 50px;
+    margin: 0px;
+    background: rgb(129, 129, 243);
+}
+main{
+    width: 85%;
+    margin: 0 10px 0 20px;
+}
+aside{
+    width: 15%;
+    margin: 0;
+}
+footer{
+    height: calc(15% - 10px);
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    height: auto;
+    min-height: calc(65% - 10px);
+    margin: 0 10px;
+}
+
+.fondoAzul{
+    background-color: blue;
+}
+
+.menuActivado {
+    font-weight: bold;
+    background-color: rgb(64, 64, 214);
+}
+
+nav > a {
+    display: inline-block;
+    border: 1px;
+    color: white;
+    text-decoration: none;
+    padding: 16px 10px;
+    text-align: center;
+}
+
+a:hover{
+    background-color: rgb(64, 64, 214);
+}
+
+.input_class input{
+    padding: 5px;
+    margin:  5px;
+    width: 100%;
+}
+
+.requiredField {
+    color: red;
+    font-family: monospace;
+    font-size: smaller;
+    float: right;
+}
+
+/* input:required {
+    background: rgb(255, 223, 223);
+} */
+
+/* input:valid {
+    background: none;
+} */
+
+select {
+    padding: 5px;
+    margin: 5px;
+    width: calc(100% + 13px);
+    border-width: 2px;
+    border-style: inset;
+}
+
+
+.campoRequerido {
+    border-color: red;
+}
+
+
+.div-lista{
+    width: 500px;
+}
+.div-lista > ul{
+    list-style: none;
+    padding: 0;
+}
+.div-lista > ul > li{
+    padding: 8px 10px;
+    color: #111;
+}
+.div-lista > ul >li:nth-child(odd) { /* filas pares */
+    background-color: #f5f5f5;
+}
+.div-lista > ul >li:nth-child(even) { /* filas impares */
+    background-color: #e5e5e5;
+}
+.descripcion-Lista {
+    width: 70%; display: inline-block;
+}
+
+button {
+    margin: 0 2px;
+}
+
+mat-form-field {
+    width: 100%;
+}

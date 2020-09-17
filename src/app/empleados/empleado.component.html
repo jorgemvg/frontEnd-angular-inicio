@@ -1,0 +1,93 @@
+
+<div style="width: 50%; float: left;" >
+
+    <h2 style="text-align: center ;">Nuevo Empleado</h2>
+
+    <form #formulario="ngForm" (ngSubmit)="onSubmit(); formulario.reset();">
+
+        <mat-form-field>
+            <input matInput type="text" name="nombres" #nombres="ngModel" [(ngModel)]="empleado.nombres" placeholder="Nombres" required 
+            [ngClass]="{'campoRequerido': nombres.touched && !nombres.valid}" autocomplete="off"  >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="empleado.apellidos" placeholder="Apellidos" required >
+            <span class="requiredField" *ngIf="apellidos.touched && !apellidos.valid" >
+                *El Campo es requerido.
+            </span>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" min="1" max="122" name="edad" #edad="ngModel" [(ngModel)]="empleado.edad" placeholder="Edad" required >
+            <span class="requiredField" *ngIf="edad.touched && !edad.valid" >
+                *El Campo es requerido.
+            </span>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput type="email" name="email" #email="ngModel" [(ngModel)]="empleado.email" placeholder="Email" >
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-select  name="pais" #pais="ngModel" [(ngModel)]="empleado.pais" >
+                <mat-option value="" selected>-- Seleccionar Pais --</mat-option>
+                <mat-option [value]="item.id" *ngFor="let item of comboPaises" >{{item.descripcion}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select name="departamento" #departamento="ngModel" [(ngModel)]="empleado.departamento" >
+                <mat-option value="" selected >-- Seleccionar Departamento --</mat-option>
+                <mat-option [value]="item.id" *ngFor="let item of comboDepartamentos" >{{item.descripcion}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select name="ciudad" #ciudad="ngModel" [(ngModel)]="empleado.ciudad" >
+                <mat-option value="" selected >-- Seleccionar Ciudad --</mat-option>
+                <mat-option [value]="item.id" *ngFor="let item of comboCiudades" >{{item.descripcion}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select name="sexo" #sexo="ngModel" [(ngModel)]="empleado.sexo" >
+                <mat-option value="" selected >-- Seleccionar Sexo --</mat-option>
+                <mat-option [value]="item.id" *ngFor="let item of comboSexos" >{{item.descripcion}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select name="estadoCivil" #estadoCivil="ngModel" [(ngModel)]="empleado.estadoCivil" >
+                <mat-option value="" selected >-- Seleccionar Estado Civil --</mat-option>
+                <mat-option [value]="item.id" *ngFor="let item of comboEstadosCiviles" >{{item.descripcion}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="date" name="fechaNacimiento" #fechaNacimiento="ngModel" [(ngModel)]="empleado.fechaNacimiento" placeholder="Fecha de Nacimiento" >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" name="sueldo" #sueldo="ngModel" [(ngModel)]="empleado.sueldo" placeholder="Sueldo" 
+                (blur)="formatCurrency($event.target.value)" (keypress)="soloNumeros($event)">
+        </mat-form-field>
+        <br>
+        
+        <div style="text-align: center;">
+            <button mat-raised-button type="submit" [disabled]="!formulario.form.valid" >Guardar</button>
+        </div>
+
+    </form>
+
+</div>
+<div style="float: right;">
+    <h2 style="text-align: center ;">Lista de Empleados</h2>
+
+    <div  class="div-lista" >
+        <ul>    
+            <li *ngFor="let emp of empleados; let i = index" >
+                <span class="descripcion-Lista">{{emp.nombres}} {{emp.apellidos}} - {{emp.edad}} </span>
+                <span>
+                    <button (click)="borrar(i)" >Borrar</button>
+                    <button (click)="editar(i)" >Editar</button>
+                </span>
+            </li>
+        </ul>
+    </div>
+
+    
+</div>
+
+

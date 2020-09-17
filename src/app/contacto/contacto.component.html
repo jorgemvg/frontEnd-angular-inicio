@@ -1,0 +1,23 @@
+{{parametro}}
+<div *ngIf="!envioExitoso">
+    <h3>Contactenos</h3>
+
+    <div>
+        <input type="text" [(ngModel)]="nombre" placeholder="Nombre Completo" >
+    </div>
+
+    <div>
+        <input type="text" [(ngModel)]="email" placeholder="Email" >
+    </div>
+
+    <div>
+        <textarea rows="5" [(ngModel)]="mensaje" placeholder="Mensaje" ></textarea>
+    </div>
+
+    <div id="enviar">
+        <button (click)="enviarMensaje()">Enviar</button>
+    </div>
+</div>
+<div *ngIf="envioExitoso" >
+    <p id="mensaje_exito">El mensaje se envió correctamente, pronto nos estaremos comnicando con usted.</p>
+</div>
